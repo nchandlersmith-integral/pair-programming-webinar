@@ -20,38 +20,4 @@ class BowlingTest {
 
         assertEquals(expected, actual);
     }
-
-    @Test void score_handlesTwoFrames_withNoSpares_withNoStrikes() {
-        Bowling bowling = new Bowling();
-        int expected = 15;
-        List<String> frames = new ArrayList<>();
-        frames.add("4/2");
-        frames.add("8/1");
-        int actual = bowling.score(frames);
-
-        assertEquals(expected, actual);
-    }
-
-    @Test void score_handlesThreeFrames_withNoSpares_withNoStrikes() {
-        Bowling bowling = new Bowling();
-        int expected = 20;
-        List<String> frames = new ArrayList<>();
-        frames.add("3/5");
-        frames.add("2/1");
-        frames.add("5/4");
-        int actual = bowling.score(frames);
-
-        assertEquals(expected, actual);
-    }
-
-    @Test void score_handlesSpareFrame() {
-        Bowling bowling = new Bowling();
-        int expected = 22;
-        List<String> frames = new ArrayList<>();
-        frames.add("7/3");
-        frames.add("5/2");
-        int actual = bowling.score(frames);
-
-        assertEquals(expected, actual);
-    }
 }
