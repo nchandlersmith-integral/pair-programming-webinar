@@ -4,11 +4,54 @@
 package pair.programming.webinar;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class BowlingTest {
-    @Test void someLibraryMethodReturnsTrue() {
-        Bowling classUnderTest = new Bowling();
-        assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
+    @Test void score_returns7_when6Plus1PinsKnockedDownInAFrame() {
+        Bowling bowling = new Bowling();
+        int expected = 7;
+        List<String> frames = new ArrayList<>();
+        frames.add("6/1");
+        int actual = bowling.score(frames);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test void score_handlesTwoFrames_withNoSpares_withNoStrikes() {
+        Bowling bowling = new Bowling();
+        int expected = 15;
+        List<String> frames = new ArrayList<>();
+        frames.add("4/2");
+        frames.add("8/1");
+        int actual = bowling.score(frames);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test void score_handlesThreeFrames_withNoSpares_withNoStrikes() {
+        Bowling bowling = new Bowling();
+        int expected = 20;
+        List<String> frames = new ArrayList<>();
+        frames.add("3/5");
+        frames.add("2/1");
+        frames.add("5/4");
+        int actual = bowling.score(frames);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test void score_handlesSpareFrame() {
+        Bowling bowling = new Bowling();
+        int expected = 22;
+        List<String> frames = new ArrayList<>();
+        frames.add("7/3");
+        frames.add("5/2");
+        int actual = bowling.score(frames);
+
+        assertEquals(expected, actual);
     }
 }
